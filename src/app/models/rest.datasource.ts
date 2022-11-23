@@ -7,14 +7,18 @@ import { Inventory } from "./inventory.model";
 import { ResponseModel } from "./response.model";
 import { User } from './user.model'
 
+// const PROTOCOL = "http";
+// const PORT = 3000;
+
 @Injectable()
 export class RestDataSource {
 
     baseUrl: string;
     auth_token: string;
 
-    constructor(private http: HttpClient) {        
-        this.baseUrl = "http://localhost:3000/";        
+    constructor(private http: HttpClient) {
+        this.baseUrl = "http://localhost:3000/";
+        // this.baseUrl = '${PROTOCOL}://${location.hostname}:${PORT}';
     }
 
     // Inventory
@@ -62,12 +66,12 @@ export class RestDataSource {
             catchError(error => {return of(error.error)}));
     }
 
-    
+
     // User endpoint of the API
     authenticate(user: string, pass: string): Observable<ResponseModel> {
-        return this.http.post<any>(this.baseUrl + "users/signin", 
+        return this.http.post<any>(this.baseUrl + "users/signin",
         {
-            username: user, 
+            username: user,
             password: pass
         }).pipe(
             map(response => {
@@ -81,7 +85,7 @@ export class RestDataSource {
 
     signupUser(user: User): Observable<ResponseModel> {
         return this.http.post<ResponseModel>(
-                this.baseUrl + "users/signup", 
+                this.baseUrl + "users/signup",
                 user
             )
             .pipe(map(response => {
