@@ -7,3 +7,5 @@ import { Component } from '@angular/core';
 export class IndexComponent {
   title = 'Home';
 }
+
+//create components, register components

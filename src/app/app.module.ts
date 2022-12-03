@@ -27,6 +27,6 @@ import { ListComponent } from './components/inventory/list.component';
     ])
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent] //initial component
 })
 export class AppModule { }
