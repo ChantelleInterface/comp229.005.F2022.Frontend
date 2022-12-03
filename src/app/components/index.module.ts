@@ -5,7 +5,7 @@ import { IndexComponent } from './index.component';
 import { PartialsModule } from './partials/partials.module';
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, PartialsModule ],
+    imports: [BrowserModule, FormsModule, PartialsModule],
     declarations: [
         IndexComponent
     ],
