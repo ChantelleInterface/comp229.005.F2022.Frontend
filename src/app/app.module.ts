@@ -9,6 +9,7 @@ import { IndexComponent} from "./components/index.component";
 
 import { InventoryModule } from './components/inventory/inventory.module';
 import { ListComponent } from './components/inventory/list.component';
+import { AddEditComponent } from './components/inventory/add_edit.component';
 
 
 @NgModule({
@@ -23,6 +24,8 @@ import { ListComponent } from './components/inventory/list.component';
     RouterModule.forRoot([
       { path: '', component: IndexComponent },
       { path: 'inventory/list', component: ListComponent},
+      { path: 'inventory/:mode', component: AddEditComponent},
+      { path: 'inventory/:mode/:id', component: AddEditComponent},
       { path: '**', redirectTo: '' }
     ])
   ],

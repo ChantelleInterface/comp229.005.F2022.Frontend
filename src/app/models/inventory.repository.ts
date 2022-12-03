@@ -24,7 +24,7 @@ export class InventoryRepository {
     }
 
     getItem(id: string): Inventory {
-        return Object.assign({}, this.tempInventoryList.find(i => i._id === id)!);        
+        return Object.assign({}, this.tempInventoryList.find(i => i._id === id)!);
     }
 
     async saveInventory(item: Inventory) {
@@ -39,7 +39,7 @@ export class InventoryRepository {
                     }
                     else{ // If API send error.
                         // Convert into ResponseModel to get the error message.
-                        let error = response as ResponseModel;  
+                        let error = response as ResponseModel;
                         alert(`Error: ${error.message}`);
                     }
                 });
@@ -50,14 +50,14 @@ export class InventoryRepository {
                 // Convert into ResponseModel to get the error message.
                 let response = resp as ResponseModel;
                 if (response.success == true) {
-                    console.log(`Sucess: ${response.success}`);
+                    console.log(`Success: ${response.success}`);
                     this.tempInventoryList.splice(this.tempInventoryList.
                         findIndex(i => i._id == item._id), 1, item);
                 }
                 else{
                     // If API send error.
                     alert(`Error: ${response.message}`);
-                }        
+                }
             });
         }
     }
@@ -66,7 +66,7 @@ export class InventoryRepository {
         this.dataSource.deleteInventory(id).subscribe(response => {
             if (response.success) {
                 this.tempInventoryList.splice(this.tempInventoryList.
-                    findIndex(item => item._id == id), 1);                                
+                    findIndex(item => item._id == id), 1);
             }
             else{
                 alert(`Error: ${response.message}`);
