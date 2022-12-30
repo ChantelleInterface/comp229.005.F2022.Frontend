@@ -6,9 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Inventory } from "./inventory.model";
 import { ResponseModel } from "./response.model";
 import { User } from './user.model'
-
-// const PROTOCOL = "http";
-// const PORT = 3000;
+import { environment } from "src/environments/environment";
 
 @Injectable()
 export class RestDataSource {
@@ -17,8 +15,7 @@ export class RestDataSource {
     auth_token: string;
 
     constructor(private http: HttpClient) {
-        this.baseUrl = "http://localhost:3000/";
-        // this.baseUrl = '${PROTOCOL}://${location.hostname}:${PORT}';
+        this.baseUrl = environment.apiURL;
     }
 
     // Inventory
