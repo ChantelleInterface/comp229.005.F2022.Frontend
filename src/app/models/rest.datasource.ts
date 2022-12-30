@@ -6,6 +6,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Inventory } from "./inventory.model";
 import { ResponseModel } from "./response.model";
 import { User } from './user.model'
+import { environment } from "src/environments/environment";
 
 @Injectable()
 export class RestDataSource {
@@ -13,8 +14,8 @@ export class RestDataSource {
     baseUrl: string;
     auth_token: string;
 
-    constructor(private http: HttpClient) {        
-        this.baseUrl = "http://localhost:3000/";        
+    constructor(private http: HttpClient) {
+        this.baseUrl = environment.apiURL;
     }
 
     // Inventory
@@ -62,12 +63,12 @@ export class RestDataSource {
             catchError(error => {return of(error.error)}));
     }
 
-    
+
     // User endpoint of the API
     authenticate(user: string, pass: string): Observable<ResponseModel> {
-        return this.http.post<any>(this.baseUrl + "users/signin", 
+        return this.http.post<any>(this.baseUrl + "users/signin",
         {
-            username: user, 
+            username: user,
             password: pass
         }).pipe(
             map(response => {
@@ -81,7 +82,7 @@ export class RestDataSource {
 
     signupUser(user: User): Observable<ResponseModel> {
         return this.http.post<ResponseModel>(
-                this.baseUrl + "users/signup", 
+                this.baseUrl + "users/signup",
                 user
             )
             .pipe(map(response => {
