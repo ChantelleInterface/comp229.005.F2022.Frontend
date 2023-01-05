@@ -4,7 +4,16 @@
 
 export const environment = {
   production: false,
-  apiURL: "http://localhost:3000/"
+  apiURL: "http://localhost:3000/",
+
+  firebaseConfig: {
+    apiKey: "AIzaSyAZ4n945_YTn08pEOIOsOnl2uV_BgUKKhA",
+    authDomain: "helical-realm-373207.firebaseapp.com",
+    projectId: "helical-realm-373207",
+    storageBucket: "helical-realm-373207.appspot.com",
+    messagingSenderId: "597952420940",
+    appId: "1:597952420940:web:1f50fc4176ce89522f28e9"
+  }
 };
 /*
  * For easier debugging in development mode, you can import the following file
