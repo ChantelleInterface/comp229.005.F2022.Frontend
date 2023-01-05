@@ -21,6 +21,12 @@ jobs:
             npm install
 
       - run:
+          name: Create the Environment ile
+          command: |
+            echo -e "${ENV_FILE}" > ./src/environments/environment.prod.ts
+
+
+      - run:
           name: Build Angular app
           command: |
             npm run build
