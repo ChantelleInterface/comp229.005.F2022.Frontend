@@ -21,6 +21,11 @@ jobs:
             npm install
 
       - run:
+          name: Create the Environment File
+          command: |
+            echo -e "${ENV_FILE}" > ./src/environments/environment.prod.ts
+
+      - run:
           name: Build Angular app
           command: |
             npm run build
@@ -35,8 +40,8 @@ jobs:
           name: Setup Google Cloud CLI
           command: |
             echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
-            gcloud --quiet config set project comp229-005-frontend-373222
-            gcloud --quiet config set compute/zone northamerica-northeast1
+            gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+            gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
 
       - run:
           name: Deploy the app
