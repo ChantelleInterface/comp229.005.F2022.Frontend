@@ -21,9 +21,9 @@ jobs:
             npm install
 
       - run:
-          name: Create the Environment ile
+          name: Create the Environment File
           command: |
-            echo -e "${ENV_FILE}" > ./src/environments/environment.prod.ts
+            echo -e "${ENV_FILE}" > ./src/environments/environment
 
 
       - run:
