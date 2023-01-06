@@ -3,5 +3,6 @@
         "appspot",
         "EOIOs",
         "firebaseapp"
-    ]
+    ],
+    "html.validate.styles": false
 }
